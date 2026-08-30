@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 12 Part A</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+      background: #f5f7fb;
+      color: #222;
+    }
+
+    main {
+      background: #fff;
+      border: 1px solid #dde3ee;
+      border-radius: 8px;
+      padding: 28px;
+    }
+
+    h1 {
+      margin-top: 0;
+      color: #16325c;
+    }
+
+    code {
+      background: #edf2f7;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background: #111827;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Lab 12 Part A</h1>
+    <h2>Programs to familiarize Server-Side Scripting using Node JS</h2>
+
+    <p>This lab demonstrates server-side scripting using Node.js, Express.js APIs, EJS templates, and form handling.</p>
+
+    <h3>Run Commands</h3>
+    <pre><code>npm install
+npm run dev</code></pre>
+
+    <h3>Lab Tasks</h3>
+    <ol>
+      <li>Basic server routes for name, roll number, and branch in text, HTML, and JSON formats.</li>
+      <li>Calculator API for add, subtract, multiply, divide, modulus, and power operations.</li>
+      <li>Student management routes for listing, viewing, and adding students.</li>
+      <li>EJS timetable page with day, time, subject, and faculty.</li>
+      <li>EJS student registration form and result page.</li>
+    </ol>
+
+    <h3>Important Routes</h3>
+    <ul>
+      <li><code>/name/text</code></li>
+      <li><code>/name/html</code></li>
+      <li><code>/name/json</code></li>
+      <li><code>/calculate?num1=10&amp;num2=5&amp;operation=add</code></li>
+      <li><code>/students</code></li>
+      <li><code>/students/1</code></li>
+      <li><code>/timetable</code></li>
+      <li><code>/register</code></li>
+    </ul>
+
+    <h3>Server URL</h3>
+    <p>After running the server, open <code>http://localhost:3000</code>.</p>
+  </main>
+</body>
+</html>

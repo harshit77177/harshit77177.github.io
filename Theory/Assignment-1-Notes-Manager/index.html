@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 1 - Notes Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        button {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .stats {
+            background: rgba(0, 0, 0, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .stat {
+            color: #333;
+        }
+
+        .stat-number {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        main {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            background: #f0f0f0;
+            color: #333;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95em;
+        }
+
+        .filter-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .filter-btn:hover {
+            border-color: #667eea;
+        }
+
+        .notes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .note-card {
+            background: white;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .note-card:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .note-card.completed {
+            background: #f8f8f8;
+            opacity: 0.7;
+        }
+
+        .note-card.completed .note-text {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .note-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .note-text {
+            color: #333;
+            font-size: 1.05em;
+            line-height: 1.5;
+            margin-bottom: 12px;
+            word-wrap: break-word;
+        }
+
+        .note-time {
+            font-size: 0.85em;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        .note-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn-small {
+            padding: 6px 12px;
+            font-size: 0.85em;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-complete {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .btn-complete:hover {
+            background: #45a049;
+        }
+
+        .btn-edit {
+            background: #FF9800;
+            color: white;
+        }
+
+        .btn-edit:hover {
+            background: #e68900;
+        }
+
+        .btn-delete {
+            background: #f44336;
+            color: white;
+        }
+
+        .btn-delete:hover {
+            background: #da190b;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+        }
+
+        .empty-state-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .empty-state-text {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .clear-all-btn {
+            background: #f44336;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .edit-form {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .edit-form input {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        .edit-form button {
+            margin-right: 10px;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            color: #1565c0;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 0;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .form-group {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER SECTION -->
+        <header>
+            <h1>Notes Manager</h1>
+            <p class="subtitle">Create, update, complete, filter, and delete notes in your browser.</p>
+
+            <!-- ADD NEW NOTE FORM -->
+            <div class="form-group">
+                <input 
+                    type="text" 
+                    id="noteInput" 
+                    placeholder="Write your note here... (max 200 characters)" 
+                    maxlength="200"
+                >
+                <button onclick="addNote()">Add Note</button>
+            </div>
+
+            <!-- STATISTICS -->
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number" id="totalNotes">0</div>
+                    <div class="stat-label">Total Notes</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" id="completedCount">0</div>
+                    <div class="stat-label">Completed</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" id="pendingCount">0</div>
+                    <div class="stat-label">Pending</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main>
+            <div class="info-box">
+                [INFO] Notes are saved in localStorage and remain available after closing the browser.
+            </div>
+
+            <!-- FILTER BUTTONS -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterNotes('all', this)">All</button>
+                <button class="filter-btn" onclick="filterNotes('pending', this)">Pending</button>
+                <button class="filter-btn" onclick="filterNotes('completed', this)">Completed</button>
+            </div>
+
+            <!-- NOTES DISPLAY AREA -->
+            <div class="notes-list" id="notesList">
+                <div class="empty-state">
+                    <div class="empty-state-icon">&#128221;</div>
+                    <div class="empty-state-text">No notes yet</div>
+                    <p>Create your first note above to get started!</p>
+                </div>
+            </div>
+
+            <!-- CLEAR ALL BUTTON -->
+            <button class="clear-all-btn" onclick="clearAllNotes()">Clear All Notes</button>
+        </main>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // ===========================
+        // DATA MANAGEMENT FUNCTIONS
+        // ===========================
+
+        // Storage key name
+        const STORAGE_KEY = 'assignment1NotesManager';
+        let currentFilter = 'all';
+
+        // Get all notes from localStorage
+        function getNotes() {
+            const json = localStorage.getItem(STORAGE_KEY);
+            if (!json) return [];
+
+            try {
+                const notes = JSON.parse(json);
+                return Array.isArray(notes) ? notes : [];
+            } catch (error) {
+                console.error('Could not read saved notes:', error);
+                return [];
+            }
+        }
+
+        // Save notes to localStorage
+        function saveNotes(notes) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(notes));
+            console.log('[INFO] Notes saved to localStorage. Total:', notes.length);
+        }
+
+        // ===========================
+        // CRUD OPERATIONS
+        // ===========================
+
+        // CREATE: Add a new note
+        function addNote() {
+            const input = document.getElementById('noteInput');
+            const text = input.value.trim();
+
+            // Validation
+            if (text === '') {
+                alert('Please enter a note!');
+                return;
+            }
+
+            // Create note object
+            const note = {
+                id: Date.now(), // Use timestamp as unique ID
+                text: text,
+                completed: false,
+                createdAt: new Date().toLocaleString(),
+                updatedAt: null
+            };
+
+            // Add to storage
+            const notes = getNotes();
+            notes.unshift(note); // Add to beginning
+            saveNotes(notes);
+
+            // Clear input
+            input.value = '';
+            input.focus();
+
+            // Refresh display
+            renderNotes();
+
+            console.log('[OK] Note added:', note.text);
+        }
+
+        // READ: Get a specific note
+        function getNote(id) {
+            const notes = getNotes();
+            return notes.find(note => note.id === id);
+        }
+
+        // UPDATE: Mark note as complete/incomplete
+        function toggleComplete(id) {
+            const notes = getNotes();
+            const note = notes.find(n => n.id === id);
+            
+            if (note) {
+                note.completed = !note.completed;
+                note.updatedAt = new Date().toLocaleString();
+                saveNotes(notes);
+                renderNotes();
+                console.log('[OK] Note toggled:', note.text);
+            }
+        }
+
+        // UPDATE: Edit note text
+        function editNote(id) {
+            const note = getNote(id);
+            const newText = prompt('Edit your note:', note.text);
+
+            if (newText !== null && newText.trim() !== '') {
+                const notes = getNotes();
+                const noteToUpdate = notes.find(n => n.id === id);
+                noteToUpdate.text = newText.trim();
+                noteToUpdate.updatedAt = new Date().toLocaleString();
+                saveNotes(notes);
+                renderNotes();
+                console.log('[OK] Note updated:', noteToUpdate.text);
+            }
+        }
+
+        // DELETE: Remove a specific note
+        function deleteNote(id) {
+            if (confirm('Are you sure you want to delete this note?')) {
+                let notes = getNotes();
+                notes = notes.filter(note => note.id !== id);
+                saveNotes(notes);
+                renderNotes();
+                console.log('[OK] Note deleted');
+            }
+        }
+
+        // DELETE: Clear all notes
+        function clearAllNotes() {
+            if (confirm('Are you sure? This will delete ALL notes!')) {
+                localStorage.removeItem(STORAGE_KEY);
+                renderNotes();
+                console.log('[OK] All notes cleared');
+            }
+        }
+
+        // ===========================
+        // DISPLAY FUNCTIONS
+        // ===========================
+
+        // Filter notes based on status
+        function filterNotes(status, button) {
+            currentFilter = status;
+
+            // Update button styles
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            button.classList.add('active');
+
+            renderNotes();
+        }
+
+        // Render all notes to the page
+        function renderNotes() {
+            const notes = getNotes();
+            const listContainer = document.getElementById('notesList');
+
+            // Filter notes based on current filter
+            let filteredNotes = notes;
+            if (currentFilter === 'completed') {
+                filteredNotes = notes.filter(n => n.completed);
+            } else if (currentFilter === 'pending') {
+                filteredNotes = notes.filter(n => !n.completed);
+            }
+
+            // Update statistics
+            updateStats(notes);
+
+            // Check if empty
+            if (notes.length === 0) {
+                listContainer.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">&#128221;</div>
+                        <div class="empty-state-text">No notes yet</div>
+                        <p>Create your first note above to get started!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Display filtered notes
+            if (filteredNotes.length === 0) {
+                listContainer.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-text">No ${currentFilter} notes</div>
+                    </div>
+                `;
+                return;
+            }
+
+            // Create HTML for each note
+            listContainer.innerHTML = filteredNotes.map(note => `
+                <div class="note-card ${note.completed ? 'completed' : ''}">
+                    <div class="note-header">
+                        <div class="note-text">${escapeHtml(note.text)}</div>
+                    </div>
+                    <div class="note-time">
+                        Created: ${note.createdAt}
+                        ${note.updatedAt ? `<br>Updated: ${note.updatedAt}` : ''}
+                    </div>
+                    <div class="note-actions">
+                        <button class="btn-small btn-complete" onclick="toggleComplete(${note.id})">
+                            ${note.completed ? 'Undo' : 'Complete'}
+                        </button>
+                        <button class="btn-small btn-edit" onclick="editNote(${note.id})">Edit</button>
+                        <button class="btn-small btn-delete" onclick="deleteNote(${note.id})">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Update statistics display
+        function updateStats(notes) {
+            const total = notes.length;
+            const completed = notes.filter(n => n.completed).length;
+            const pending = total - completed;
+
+            document.getElementById('totalNotes').textContent = total;
+            document.getElementById('completedCount').textContent = completed;
+            document.getElementById('pendingCount').textContent = pending;
+        }
+
+        // Escape HTML to prevent XSS
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // ===========================
+        // EVENT LISTENERS
+        // ===========================
+
+        // Add note when Enter key is pressed
+        document.getElementById('noteInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addNote();
+            }
+        });
+
+        // ===========================
+        // INITIALIZATION
+        // ===========================
+
+        // Load notes when page loads
+        window.addEventListener('DOMContentLoaded', function() {
+            console.log('[INFO] Notes Manager loaded');
+            console.log('[INFO] localStorage available:', typeof(Storage) !== 'undefined');
+            
+            const notes = getNotes();
+            console.log('[INFO] Notes in storage:', notes.length);
+            
+            renderNotes();
+
+            // Auto-focus on input
+            document.getElementById('noteInput').focus();
+        });
+
+        // ===========================
+        // CONSOLE CHEAT SHEET
+        // ===========================
+        console.log(`
+========================================
+NOTES MANAGER - CONSOLE COMMANDS
+========================================
+
+Get all notes:
+  >>> getNotes()
+
+Add a note manually:
+  >>> const notes = getNotes();
+  >>> notes.push({id: Date.now(), text: 'New note', completed: false, createdAt: new Date().toLocaleString(), updatedAt: new Date().toLocaleString()});
+  >>> saveNotes(notes);
+  >>> renderNotes();
+
+See raw localStorage:
+  >>> localStorage.getItem('assignment1NotesManager')
+
+Delete all notes:
+  >>> localStorage.removeItem('assignment1NotesManager');
+  >>> renderNotes();
+
+Export notes as JSON:
+  >>> JSON.stringify(getNotes(), null, 2)
+
+Print all keys in storage:
+  >>> console.table(localStorage)
+
+Check storage size:
+  >>> new Blob(Object.values(localStorage)).size + ' bytes'
+
+========================================
+        `);
+    </script>
+</body>
+</html>

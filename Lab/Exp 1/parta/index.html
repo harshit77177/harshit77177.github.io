@@ -1,0 +1,804 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gaming Arena</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #101010;
+            color: white;
+        }
+
+        header {
+            background-color: #1c1c1c;
+            text-align: center;
+            padding: 25px;
+        }
+
+        header h1 {
+            color: #7c6cff;
+            letter-spacing: 3px;
+        }
+
+        nav a {
+            color: #aaa0ff;
+            text-decoration: none;
+            margin: 15px;
+        }
+
+        main {
+            width: 90%;
+            max-width: 1000px;
+            margin: 25px auto;
+        }
+
+        section,
+        article,
+        aside {
+            background-color: #1b1b1b;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #333;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #9185ff;
+        }
+
+        mark {
+            background-color: #6558d8;
+            color: white;
+            padding: 3px;
+        }
+
+        .games {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .game {
+            flex: 1;
+            min-width: 200px;
+            background-color: #252525;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #555;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #302a70;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            background-color: #111;
+            color: white;
+            border: 1px solid #555;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: auto;
+        }
+
+        input[type="color"] {
+            width: 60px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            width: auto;
+            padding: 10px 20px;
+            background-color: #6558d8;
+            color: white;
+            border: none;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        canvas {
+            border: 1px solid #6558d8;
+            background-color: #080808;
+            max-width: 100%;
+        }
+
+        details {
+            background-color: #252525;
+            padding: 12px;
+            margin: 10px 0;
+        }
+
+        footer {
+            background-color: #1c1c1c;
+            text-align: center;
+            padding: 20px;
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>GAMING ARENA</h1>
+
+    <p><em>A place for gamers and gaming enthusiasts</em></p>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#games">Games</a>
+        <a href="#ranking">Ranking</a>
+        <a href="#events">Events</a>
+        <a href="#register">Register</a>
+    </nav>
+
+</header>
+
+
+<main>
+
+    <!-- Introduction -->
+
+    <section id="home">
+
+        <h2>Welcome to Gaming Arena</h2>
+
+        <p>
+            Welcome to our <mark>Gaming Arena</mark>.
+            This webpage demonstrates different HTML5 elements
+            using a gaming website.
+        </p>
+
+        <p>
+            Season Progress:
+            <progress value="70" max="100">70%</progress>
+        </p>
+
+    </section>
+
+
+    <!-- Article and Aside -->
+
+    <section>
+
+        <article>
+
+            <h2>About Gaming</h2>
+
+            <p>
+                Gaming requires strategy, concentration,
+                quick decisions and teamwork.
+            </p>
+
+            <blockquote>
+                Practice makes every player better.
+            </blockquote>
+
+        </article>
+
+        <aside>
+
+            <h3>Gaming Tip</h3>
+
+            <p>
+                Learn from your mistakes and improve your skills.
+            </p>
+
+        </aside>
+
+    </section>
+
+
+    <!-- Games -->
+
+    <section id="games">
+
+        <h2>Featured Games</h2>
+
+        <div class="games">
+
+            <article class="game">
+
+                <h3>Shadow Siege</h3>
+
+                <p>Multiplayer tactical game.</p>
+
+                <meter min="0" max="100" value="90">
+                    90%
+                </meter>
+
+                <p>Popularity: 90%</p>
+
+            </article>
+
+
+            <article class="game">
+
+                <h3>Neon Racing</h3>
+
+                <p>High-speed racing game.</p>
+
+                <meter min="0" max="100" value="82">
+                    82%
+                </meter>
+
+                <p>Popularity: 82%</p>
+
+            </article>
+
+
+            <article class="game">
+
+                <h3>Galaxy Hunters</h3>
+
+                <p>Space exploration game.</p>
+
+                <meter min="0" max="100" value="86">
+                    86%
+                </meter>
+
+                <p>Popularity: 86%</p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- Lists -->
+
+    <section>
+
+        <h2>Gaming Skills</h2>
+
+        <h3>Steps to Improve</h3>
+
+        <ol>
+            <li>Learn the game rules</li>
+            <li>Practice regularly</li>
+            <li>Improve reaction time</li>
+            <li>Develop strategies</li>
+        </ol>
+
+        <h3>Important Skills</h3>
+
+        <ul>
+            <li>Teamwork</li>
+            <li>Strategy</li>
+            <li>Communication</li>
+            <li>Quick Reaction</li>
+        </ul>
+
+        <dl>
+
+            <dt><strong>FPS</strong></dt>
+            <dd>First Person Shooter</dd>
+
+            <dt><strong>RPG</strong></dt>
+            <dd>Role Playing Game</dd>
+
+            <dt><strong>MOBA</strong></dt>
+            <dd>Multiplayer Online Battle Arena</dd>
+
+        </dl>
+
+    </section>
+
+
+    <!-- Table -->
+
+    <section id="ranking">
+
+        <h2>Player Ranking</h2>
+
+        <table>
+
+            <caption>Top Players</caption>
+
+            <thead>
+
+                <tr>
+                    <th>Rank</th>
+                    <th>Player</th>
+                    <th>Wins</th>
+                    <th>Points</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>1</td>
+                    <td>ShadowX</td>
+                    <td>42</td>
+                    <td>9850</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>Nova</td>
+                    <td>39</td>
+                    <td>9210</td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>Rogue</td>
+                    <td>35</td>
+                    <td>8750</td>
+                </tr>
+
+            </tbody>
+
+            <tfoot>
+
+                <tr>
+                    <td colspan="4">
+                        Rankings are updated every week.
+                    </td>
+                </tr>
+
+            </tfoot>
+
+        </table>
+
+    </section>
+
+
+    <!-- Events -->
+
+    <section id="events">
+
+        <h2>Gaming Events</h2>
+
+        <details>
+
+            <summary>Online Tournament</summary>
+
+            <p>
+                A competitive tournament for registered players.
+            </p>
+
+        </details>
+
+        <details>
+
+            <summary>Gaming Night</summary>
+
+            <p>
+                A casual gaming event for all players.
+            </p>
+
+        </details>
+
+    </section>
+
+
+    <!-- Figure and SVG -->
+
+    <section>
+
+        <h2>Gaming Arena Design</h2>
+
+        <figure>
+
+            <svg width="600"
+                 height="200"
+                 viewBox="0 0 600 200">
+
+                <rect x="0"
+                      y="0"
+                      width="600"
+                      height="200"
+                      fill="#080808"/>
+
+                <circle cx="150"
+                        cy="100"
+                        r="60"
+                        fill="#6558d8"/>
+
+                <rect x="270"
+                      y="50"
+                      width="120"
+                      height="100"
+                      fill="#302a70"/>
+
+                <polygon points="500,40 550,150 450,150"
+                         fill="#9185ff"/>
+
+            </svg>
+
+            <figcaption>
+                Simple representation of the Gaming Arena.
+            </figcaption>
+
+        </figure>
+
+    </section>
+
+
+    <!-- Canvas -->
+
+    <section>
+
+        <h2>Canvas</h2>
+
+        <canvas id="gameCanvas"
+                width="600"
+                height="180">
+            Your browser does not support canvas.
+        </canvas>
+
+        <script>
+
+            let canvas = document.getElementById("gameCanvas");
+            let ctx = canvas.getContext("2d");
+
+            ctx.fillStyle = "#252525";
+            ctx.fillRect(0, 0, 600, 180);
+
+            ctx.fillStyle = "#6558d8";
+            ctx.fillRect(50, 45, 180, 90);
+
+            ctx.beginPath();
+            ctx.arc(430, 90, 50, 0, 2 * Math.PI);
+            ctx.fillStyle = "#9185ff";
+            ctx.fill();
+
+            ctx.fillStyle = "white";
+            ctx.font = "22px Arial";
+            ctx.fillText("GAMING ZONE", 75, 100);
+
+        </script>
+
+    </section>
+
+
+    <!-- Audio and Video -->
+
+    <section>
+
+        <h2>Gaming Media</h2>
+
+        <h3>Audio</h3>
+
+        <audio controls>
+
+            <source src="gaming.mp3" type="audio/mpeg">
+
+            Your browser does not support audio.
+
+        </audio>
+
+
+        <h3>Video</h3>
+
+        <video width="500" controls>
+
+            <source src="gameplay.mp4" type="video/mp4">
+
+            Your browser does not support video.
+
+        </video>
+
+    </section>
+
+
+    <!-- Other HTML5 Elements -->
+
+    <section>
+
+        <h2>HTML5 Elements</h2>
+
+        <p>
+            Press <kbd>Ctrl</kbd> + <kbd>S</kbd>
+            to save the webpage.
+        </p>
+
+        <pre>
+PLAYER
+------
+Rank: Gold
+Level: 25
+Wins: 50
+        </pre>
+
+        <p>
+            Example:
+            <code>&lt;section&gt;Gaming Arena&lt;/section&gt;</code>
+        </p>
+
+        <p>
+            Water formula: H<sub>2</sub>O
+        </p>
+
+        <p>
+            Power: XP<sup>2</sup>
+        </p>
+
+        <p>
+            <abbr title="Player versus Player">PvP</abbr>
+            is a common multiplayer mode.
+        </p>
+
+        <p>
+            Last updated:
+            <time datetime="2026-08-18">
+                18 August 2026
+            </time>
+        </p>
+
+    </section>
+
+
+    <!-- Form -->
+
+    <section id="register">
+
+        <h2>Player Registration</h2>
+
+        <form action="#" method="post">
+
+            <fieldset>
+
+                <legend>Player Information</legend>
+
+                <label for="name">Gamer Name</label>
+
+                <input type="text"
+                       id="name"
+                       name="name"
+                       placeholder="Enter gamer name"
+                       required>
+
+
+                <label for="email">Email</label>
+
+                <input type="email"
+                       id="email"
+                       name="email"
+                       placeholder="Enter email"
+                       required>
+
+
+                <label for="password">Password</label>
+
+                <input type="password"
+                       id="password"
+                       name="password"
+                       required>
+
+
+                <label for="age">Age</label>
+
+                <input type="number"
+                       id="age"
+                       name="age"
+                       min="13"
+                       max="60">
+
+            </fieldset>
+
+
+            <fieldset>
+
+                <legend>Gaming Preferences</legend>
+
+                <label for="game">Favourite Game</label>
+
+                <input list="gameList"
+                       id="game"
+                       name="game">
+
+                <datalist id="gameList">
+
+                    <option value="Shadow Siege"></option>
+                    <option value="Neon Racing"></option>
+                    <option value="Galaxy Hunters"></option>
+
+                </datalist>
+
+
+                <label for="platform">Platform</label>
+
+                <select id="platform"
+                        name="platform">
+
+                    <option value="">Select Platform</option>
+                    <option value="pc">PC</option>
+                    <option value="console">Console</option>
+                    <option value="mobile">Mobile</option>
+
+                </select>
+
+
+                <p>Game Mode</p>
+
+                <label>
+                    <input type="radio"
+                           name="mode"
+                           value="solo">
+                    Solo
+                </label>
+
+                <label>
+                    <input type="radio"
+                           name="mode"
+                           value="team">
+                    Team
+                </label>
+
+
+                <p>Favourite Genres</p>
+
+                <label>
+                    <input type="checkbox"
+                           name="genre"
+                           value="action">
+                    Action
+                </label>
+
+                <label>
+                    <input type="checkbox"
+                           name="genre"
+                           value="racing">
+                    Racing
+                </label>
+
+                <label>
+                    <input type="checkbox"
+                           name="genre"
+                           value="rpg">
+                    RPG
+                </label>
+
+
+                <label for="level">
+                    Skill Level
+                </label>
+
+                <input type="range"
+                       id="level"
+                       name="level"
+                       min="0"
+                       max="100"
+                       value="50">
+
+
+                <label for="color">
+                    Player Color
+                </label>
+
+                <input type="color"
+                       id="color"
+                       name="color">
+
+            </fieldset>
+
+
+            <fieldset>
+
+                <legend>Additional Information</legend>
+
+                <label for="date">
+                    Gaming Since
+                </label>
+
+                <input type="date"
+                       id="date"
+                       name="date">
+
+
+                <label for="time">
+                    Preferred Gaming Time
+                </label>
+
+                <input type="time"
+                       id="time"
+                       name="time">
+
+
+                <label for="url">
+                    Gaming Profile
+                </label>
+
+                <input type="url"
+                       id="url"
+                       name="url"
+                       placeholder="https://example.com">
+
+
+                <label for="search">
+                    Search Game
+                </label>
+
+                <input type="search"
+                       id="search"
+                       name="search"
+                       placeholder="Search">
+
+
+                <label for="file">
+                    Upload Player Image
+                </label>
+
+                <input type="file"
+                       id="file"
+                       name="file"
+                       accept="image/*">
+
+
+                <label for="message">
+                    About Your Gaming Experience
+                </label>
+
+                <textarea id="message"
+                          name="message"
+                          rows="5"
+                          placeholder="Write here..."></textarea>
+
+            </fieldset>
+
+
+            <input type="submit"
+                   value="Register">
+
+            <input type="reset"
+                   value="Reset">
+
+        </form>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>Gaming Arena</p>
+
+    <address>
+        HTML5 Laboratory Project
+    </address>
+
+    <p>
+        <small>Copyright 2026 Gaming Arena</small>
+    </p>
+
+</footer>
+
+</body>
+
+</html>
+```

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Result</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 650px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f4f7fb;
+      color: #222;
+    }
+
+    .result {
+      background: white;
+      padding: 24px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    strong {
+      color: #255c99;
+    }
+  </style>
+</head>
+<body>
+  <div class="result">
+    <h1>Registration Successful</h1>
+    <p><strong>Name:</strong> <%= student.name %></p>
+    <p><strong>Email:</strong> <%= student.email %></p>
+    <p><strong>Course:</strong> <%= student.course %></p>
+    <p><strong>Semester:</strong> <%= student.semester %></p>
+  </div>
+</body>
+</html>
