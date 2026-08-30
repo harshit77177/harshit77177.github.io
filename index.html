@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harshit | Backend Development</title>
+  <style>
+    :root {
+      --bg: #f4f7f1;
+      --panel: #ffffff;
+      --ink: #172016;
+      --muted: #4f5f4b;
+      --accent: #1f7a3f;
+      --accent-dark: #155e32;
+      --accent-soft: #dff1e5;
+      --highlight: #c47a10;
+      --shadow: 0 24px 70px rgba(23, 32, 22, 0.13);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 32px 16px;
+      background:
+        linear-gradient(135deg, rgba(31, 122, 63, 0.08), rgba(196, 122, 16, 0.08)),
+        var(--bg);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    main {
+      width: min(100%, 950px);
+      display: grid;
+      gap: 18px;
+    }
+
+    .shell {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(28px, 5vw, 50px);
+      border: 1px solid rgba(31, 122, 63, 0.12);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .shell::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 8px;
+      background: linear-gradient(180deg, var(--accent), var(--highlight));
+    }
+
+    .course-mark {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(28px, 1fr));
+      gap: 8px;
+      width: min(100%, 380px);
+      margin-bottom: 28px;
+    }
+
+    .course-mark span {
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+    }
+
+    .course-mark span:nth-child(2),
+    .course-mark span:nth-child(5) {
+      background: rgba(196, 122, 16, 0.3);
+    }
+
+    .course-mark span:nth-child(3) {
+      background: var(--accent);
+    }
+
+    h1 {
+      margin: 0 0 24px;
+      color: var(--accent-dark);
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.08;
+      font-weight: 800;
+    }
+
+    p {
+      margin: 0;
+      font-size: clamp(1rem, 2vw, 1.18rem);
+      line-height: 1.55;
+    }
+
+    .sap {
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .intro {
+      max-width: 760px;
+      color: #1f291d;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .button {
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+      box-shadow: 0 10px 22px rgba(31, 122, 63, 0.22);
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(31, 122, 63, 0.26);
+    }
+
+    .button.alt {
+      background: var(--highlight);
+      box-shadow: 0 10px 22px rgba(196, 122, 16, 0.2);
+    }
+
+    .button.alt:hover,
+    .button.alt:focus-visible {
+      background: #9d5f0c;
+      box-shadow: 0 14px 28px rgba(196, 122, 16, 0.25);
+    }
+
+    @media (max-width: 640px) {
+      body {
+        place-items: stretch;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="shell" aria-labelledby="page-title">
+      <div class="course-mark" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <h1 id="page-title">Backend Development</h1>
+      <p class="sap">SAP ID: 590015972</p>
+      <p class="intro">This GitHub Pages site accompanies my Backend Development class and lab work.</p>
+
+      <nav class="actions" aria-label="Course sections">
+        <a class="button" href="Theory/">Theory Materials</a>
+        <a class="button" href="Lab/">Lab &amp; Backend Projects</a>
+        <a class="button alt" href="https://github.com/harshit77177/harshit77177.github.io">Source Repository</a>
+      </nav>
+    </section>
+  </main>
+</body>
+</html>
