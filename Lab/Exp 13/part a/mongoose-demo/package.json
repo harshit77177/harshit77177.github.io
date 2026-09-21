@@ -1,0 +1,15 @@
+{
+  "name": "exp-13-mongoose-user-management",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Express and Mongoose user registration and login experiment",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.5"
+  }
+}
